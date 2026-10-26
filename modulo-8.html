@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Módulo 8 do Arremate Inteligente — Modelo de petição de proposta de arrematação a prazo, com campos preenchíveis, salvamento automático e exportação em PDF.">
+  <title>Módulo 8 — Modelo de Petição · Arremate Inteligente</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="page-petition">
+
+  <header class="topbar no-print">
+    <button class="icon-btn" id="menuToggle" aria-label="Abrir menu lateral">☰</button>
+    <div class="brand">
+      <img src="logo.png" alt="Logo Arremate Inteligente" class="logo" onerror="this.style.display='none'">
+      <span class="brand-name">Arremate Inteligente</span>
+    </div>
+    <a href="index.html" class="icon-btn home-btn" aria-label="Voltar ao início">🏠 Home</a>
+  </header>
+
+  <aside class="sidebar no-print" id="sidebar" aria-label="Menu de módulos">
+    <div class="sidebar-header">
+      <img src="logo.png" alt="" class="sidebar-logo" onerror="this.style.display='none'">
+      <span>Arremate Inteligente</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-link">🏠 Início</a>
+      <span class="nav-section">Módulos</span>
+      <a href="modulo-1.html" class="nav-link">Módulo 1 — O Jogo da Arrematação</a>
+      <a href="modulo-2.html" class="nav-link">Módulo 2 — Pagamento e Parcelamento</a>
+      <a href="modulo-3.html" class="nav-link">Módulo 3 — A Estratégia da Venda Direta</a>
+      <a href="modulo-4.html" class="nav-link">Módulo 4 — A Arrematação na Prática</a>
+      <a href="modulo-5.html" class="nav-link">Módulo 5 — Análise e Due Diligence</a>
+      <a href="modulo-6.html" class="nav-link">Módulo 6 — Pós-Arrematação e Flip</a>
+      <a href="modulo-7.html" class="nav-link">Módulo 7 — Plano de Ação com Pouco Capital</a>
+      <a href="modulo-8.html" class="nav-link">Módulo 8 — Modelo de Petição</a>
+    </nav>
+  </aside>
+
+  <div class="sidebar-overlay no-print" id="sidebarOverlay"></div>
+
+  <main class="content">
+
+    <header class="page-header no-print">
+      <span class="module-badge">Módulo 8</span>
+      <h1>Modelo de Petição — Proposta de Arrematação a Prazo</h1>
+      <p>Preencha os campos, visualize a petição e baixe em PDF.</p>
+    </header>
+
+    <article class="lesson no-print">
+      <h2>Como usar este módulo</h2>
+      <p>Este formulário gera uma <strong>petição de proposta de arrematação a prazo</strong>, com fundamento nos arts. 892 e 895 do CPC. Preencha os campos abaixo, clique em <strong>Visualizar Petição</strong> e, se estiver correto, clique em <strong>Baixar / Imprimir PDF</strong>.</p>
+      <div class="callout warning">
+        <div class="callout-title">⚠️ Atenção</div>
+        <p>A petição precisa ser <strong>protocolada nos autos por advogado</strong>, com assinatura e OAB. Ela deve ser enviada <strong>antes do início do leilão</strong> (art. 895, I e II, do CPC), pelo sistema eletrônico do tribunal. Confirme o prazo específico no edital.</p>
+      </div>
+      <div class="callout tip">
+        <div class="callout-title">💾 Seus dados são salvos automaticamente</div>
+        <p>Tudo o que você digitar fica guardado no navegador. Se recarregar a página, os dados retornam. Use o botão <strong>Limpar</strong> para começar uma nova petição.</p>
+      </div>
+    </article>
+
+    <article class="lesson no-print">
+      <h2>Dados da Petição</h2>
+
+      <div class="save-status" id="saveStatus">💾 Pronto para digitar</div>
+
+      <form class="form-peticao" id="petitionForm">
+
+        <fieldset>
+          <legend>1. Dados do Processo</legend>
+          <div class="form-row">
+            <label>Juízo / Vara <input type="text" id="juizo" placeholder="Ex.: 3ª Vara Cível"></label>
+            <label>Comarca <input type="text" id="comarca" placeholder="Ex.: São Luís/MA"></label>
+          </div>
+          <div class="form-row">
+            <label>Número do processo <input type="text" id="processo" placeholder="0000000-00.0000.8.10.0000"></label>
+          </div>
+          <div class="form-row">
+            <label>Exequente <input type="text" id="exequente" placeholder="Nome do credor"></label>
+            <label>Executado <input type="text" id="executado" placeholder="Nome do devedor"></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>2. Dados do Proponente</legend>
+          <div class="form-row">
+            <label>Nome completo <input type="text" id="nome" placeholder="Seu nome completo"></label>
+          </div>
+          <div class="form-row">
+            <label>Nacionalidade <input type="text" id="nacionalidade" placeholder="Brasileiro(a)"></label>
+            <label>Estado civil <input type="text" id="estado_civil" placeholder="Solteiro(a), casado(a)..."></label>
+            <label>Profissão <input type="text" id="profissao" placeholder="Ex.: Empresário"></label>
+          </div>
+          <div class="form-row">
+            <label>RG <input type="text" id="rg" placeholder="0000000"></label>
+            <label>CPF <input type="text" id="cpf" placeholder="000.000.000-00"></label>
+          </div>
+          <div class="form-row">
+            <label>Endereço completo <input type="text" id="endereco" placeholder="Rua, número, bairro, cidade/UF, CEP"></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>3. Dados do Imóvel e do Leilão</legend>
+          <div class="form-row">
+            <label>Data do leilão <input type="date" id="data_leilao"></label>
+            <label>Matrícula <input type="text" id="matricula" placeholder="Nº da matrícula"></label>
+            <label>Cartório <input type="text" id="cartorio" placeholder="Ex.: 1º RI de São Luís"></label>
+          </div>
+          <div class="form-row">
+            <label>Descrição do imóvel <textarea id="descricao_imovel" rows="3" placeholder="Apartamento 2 quartos, 48 m², situado na Rua..., bairro..., cidade..."></textarea></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>4. Proposta</legend>
+          <div class="form-row">
+            <label>Valor da avaliação (R$) <input type="number" id="valor_avaliacao" step="0.01" placeholder="152000.00"></label>
+            <label>Percentual sobre a avaliação (%) <input type="number" id="percentual_proposta" step="0.01" placeholder="60"></label>
+          </div>
+          <div class="form-row">
+            <label>Valor da proposta (R$) <input type="number" id="valor_proposta" step="0.01" placeholder="91200.00"></label>
+          </div>
+          <div class="form-row">
+            <label>Valor da entrada (R$) <input type="number" id="valor_entrada" step="0.01" placeholder="22800.00"></label>
+            <label>Percentual de entrada (%) <input type="number" id="percentual_entrada" step="0.01" placeholder="25"></label>
+          </div>
+          <div class="form-row">
+            <label>Saldo remanescente (R$) <input type="number" id="saldo" step="0.01" placeholder="68400.00"></label>
+            <label>Nº de parcelas <input type="number" id="num_parcelas" placeholder="30"></label>
+          </div>
+          <div class="form-row">
+            <label>Valor de cada parcela (R$) <input type="number" id="valor_parcela" step="0.01" placeholder="2280.00"></label>
+            <label>Dia de vencimento <input type="number" id="dia_vencimento" min="1" max="28" placeholder="10"></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>5. Advogado e Fechamento</legend>
+          <div class="form-row">
+            <label>Nome do(a) advogado(a) <input type="text" id="advogado" placeholder="Nome completo"></label>
+            <label>OAB <input type="text" id="oab" placeholder="OAB/MA 00000"></label>
+          </div>
+          <div class="form-row">
+            <label>Cidade <input type="text" id="cidade" placeholder="São Luís"></label>
+            <label>Data da petição <input type="date" id="data_peticao"></label>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="button" class="btn btn-primary" id="btnVisualizar">👁️ Visualizar Petição</button>
+          <button type="button" class="btn btn-accent" id="btnImprimir" style="display:none">📥 Baixar / Imprimir PDF</button>
+          <button type="button" class="btn btn-secondary" id="btnLimpar">🗑️ Limpar</button>
+        </div>
+      </form>
+    </article>
+
+    <div class="petition-output" id="petitionOutput" style="display:none"></div>
+
+    <nav class="pager no-print" aria-label="Navegação entre módulos">
+      <a href="modulo-7.html" class="prev">← Módulo 7</a>
+      <a href="index.html" class="next">🏠 Voltar ao início</a>
+    </nav>
+
+    <footer class="footer no-print">
+      <p>Arremate Inteligente · Material didático · Uso pessoal</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

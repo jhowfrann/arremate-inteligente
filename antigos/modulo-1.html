@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Módulo 1 do curso Arremate Inteligente — O Jogo da Arrematação.">
+  <title>Módulo 1 — O Jogo da Arrematação · Arremate Inteligente</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar">
+    <button class="icon-btn" id="menuToggle" aria-label="Abrir menu lateral">☰</button>
+    <div class="brand">
+      <img src="logo.png" alt="Logo Arremate Inteligente" class="logo" onerror="this.style.display='none'">
+      <span class="brand-name">Arremate Inteligente</span>
+    </div>
+    <a href="index.html" class="icon-btn home-btn" aria-label="Voltar ao início">🏠 Home</a>
+  </header>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar" aria-label="Menu de módulos">
+    <div class="sidebar-header">
+      <img src="logo.png" alt="" class="sidebar-logo" onerror="this.style.display='none'">
+      <span>Arremate Inteligente</span>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-link">🏠 Início</a>
+      <span class="nav-section">Módulos</span>
+      <a href="modulo-1.html" class="nav-link">Módulo 1 — O Jogo da Arrematação</a>
+      <a href="modulo-2.html" class="nav-link">Módulo 2 — Pagamento e Parcelamento</a>
+      <a href="modulo-3.html" class="nav-link">Módulo 3 — A Estratégia da Venda Direta</a>
+      <a href="modulo-4.html" class="nav-link">Módulo 4 — A Arrematação na Prática</a>
+      <a href="modulo-5.html" class="nav-link">Módulo 5 — Análise e Due Diligence</a>
+      <a href="modulo-6.html" class="nav-link">Módulo 6 — Pós-Arrematação e Flip</a>
+      <a href="modulo-7.html" class="nav-link">Módulo 7 — Plano de Ação com Pouco Capital</a>
+      <a href="modulo-8.html" class="nav-link">Módulo 8 — Modelo de Petição</a>
+    </nav>
+  </aside>
+
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- CONTEÚDO -->
+  <main class="content">
+
+    <header class="page-header">
+      <span class="module-badge">Módulo 1</span>
+      <h1>O Jogo da Arrematação</h1>
+      <p>Entenda as regras do tabuleiro antes de dar o primeiro lance.</p>
+    </header>
+
+    <!-- AULA 1.1 -->
+    <article class="lesson" id="aula-1-1">
+      <h2>Aula 1.1 — Arrematação Judicial vs. Venda Direta</h2>
+
+      <p>Existem <strong>duas portas de entrada</strong> para comprar um imóvel público com desconto. Elas se parecem no resultado (você vira dono do bem), mas funcionam de formas bem diferentes — e o investidor iniciante deve escolher a porta certa para o seu perfil.</p>
+
+      <h3>Arrematação Judicial</h3>
+      <p>É a compra dentro de um <strong>processo judicial</strong>, conduzida por um leiloeiro oficial nomeado pelo juiz. Ocorre quando o devedor não pagou uma dívida e o imóvel foi penhorado como garantia. O lance é dado em hasta pública (1ª praça, 2ª praça ou praça única). O bem sai <strong>livre de dívidas anteriores</strong> (IPTU, condomínio, hipotecas) — o que é uma vantagem enorme —, mas pode estar <strong>ocupado</strong> por moradores, exigindo ação de imissão na posse depois.</p>
+
+      <h3>Venda Direta (as “sobras” de leilão)</h3>
+      <p>Quando um imóvel vai a leilão e <strong>não recebe nenhum lance</strong> em nenhuma das praças, ele pode ser oferecido em <strong>venda direta</strong> — por bancos (Caixa, BB, Itaú, Santander), leiloeiros ou plataformas. Nessa modalidade, <strong>a primeira proposta que atingir o valor mínimo leva o bem</strong>, sem disputa de lances. A concorrência é muito menor, o processo é mais rápido e, em regra, o imóvel já está desocupado (bancos geralmente exigem isso antes de colocar à venda).</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Aspecto</th><th>Arrematação Judicial</th><th>Venda Direta</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Origem</td><td>Ordem judicial</td><td>Sobras de leilões frustrados</td></tr>
+          <tr><td>Concorrência</td><td>Média a alta</td><td>Baixa</td></tr>
+          <tr><td>Desconto típico</td><td>40% a 70%</td><td>10% a 30%</td></tr>
+          <tr><td>Ocupação</td><td>Pode estar ocupado</td><td>Em geral desocupado</td></tr>
+          <tr><td>Forma de disputa</td><td>Lance presencial/online em praça</td><td>Proposta direta ao vendedor</td></tr>
+          <tr><td>Pagamento</td><td>À vista ou parcelado (25% + 30x)</td><td>Conforme edital/portal</td></tr>
+          <tr><td>Comissão de leiloeiro</td><td>5%</td><td>Varia (pode não haver)</td></tr>
+          <tr><td>Risco de processo</td><td>Sim (acompanha os autos)</td><td>Menor</td></tr>
+          <tr><td>Regularização</td><td>Bem sai “limpo”</td><td>Verificar caso a caso</td></tr>
+        </tbody>
+      </table>
+
+      <div class="callout tip">
+        <div class="callout-title">💡 Dica prática</div>
+        <p>Para quem começa com pouco capital, a <strong>venda direta é quase sempre a porta mais segura</strong>: menos concorrência, processo mais simples e, geralmente, sem risco de herdar ocupação. A arrematação judicial exige mais preparo, mas entrega os maiores descontos.</p>
+      </div>
+    </article>
+
+    <!-- AULA 1.2 -->
+    <article class="lesson" id="aula-1-2">
+      <h2>Aula 1.2 — O Edital como “Lei do Leilão”</h2>
+
+      <p>O <strong>edital</strong> é o documento que rege cada leilão. Ele é publicado no Diário da Justiça (judicial) ou no portal do vendedor (venda direta) e tem uma característica fundamental: <strong>prevalece sobre as regras gerais do CPC sempre que trata do caso concreto</strong>. É por isso que dizemos que “o edital é a lei do leilão”.</p>
+
+      <h3>O que procurar no edital (check-list)</h3>
+      <ul>
+        <li><strong>Valor de avaliação</strong> — base para calcular se o lance está barato.</li>
+        <li><strong>Lance mínimo</strong> — quanto se exige na 1ª e na 2ª praça.</li>
+        <li><strong>Forma de pagamento</strong> — à vista ou parcelado? Qual a entrada? Quantas parcelas?</li>
+        <li><strong>Comissão do leiloeiro</strong> — normalmente 5%, mas pode variar.</li>
+        <li><strong>Situação de ocupação</strong> — desocupado? Ocupado por ex-morador? Locado?</li>
+        <li><strong>Ônus</strong> — dívidas de IPTU, condomínio, hipoteca. No judicial o bem sai limpo; na venda direta, verifique.</li>
+        <li><strong>Prazos</strong> — para pagamento, para assinatura da carta de arrematação, para registro.</li>
+        <li><strong>Documentação exigida</strong> — RG, CPF, comprovantes, procuração se for o caso.</li>
+        <li><strong>Condições de vistoria</strong> — se o bem pode ser visitado e como agendar.</li>
+      </ul>
+
+      <div class="callout warning">
+        <div class="callout-title">⚠️ Atenção</div>
+        <p>Nunca dê um lance sem ter lido o edital <strong>inteiro</strong>. É muito comum o edital exigir parcela mínima (ex.: R$ 1.000,00), juros de 1% ao mês sobre o saldo, correção monetária por índice específico ou até <strong>vedar o parcelamento</strong> em determinados casos. O que vale é o que está escrito ali.</p>
+      </div>
+
+      <div class="callout info">
+        <div class="callout-title">📌 Onde encontrar editais</div>
+        <p>Editais judiciais: site do TJMA, Diário da Justiça eletrônico e sites dos leiloeiros. Editais de venda direta: portais dos bancos (ex.: <em>venda-imoveis.caixa.gov.br</em>) e sites de plataformas como VIP Leilões, Alfa Leilões, entre outros.</p>
+      </div>
+    </article>
+
+    <!-- AULA 1.3 -->
+    <article class="lesson" id="aula-1-3">
+      <h2>Aula 1.3 — 1ª Praça vs. 2ª Praça: Onde Estão os Melhores Negócios</h2>
+
+      <p>A maioria dos leilões judiciais tem <strong>duas praças</strong> (ou “até duas praças”). Elas têm regras diferentes, e é aí que mora a maior parte das oportunidades — especialmente na segunda.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr><th>Aspecto</th><th>1ª Praça</th><th>2ª Praça</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Lance mínimo (regra do CPC)</td><td>Valor da avaliação</td><td>50% do valor da avaliação</td></tr>
+          <tr><td>Concorrência</td><td>Baixa (lance alto espanta)</td><td>Alta (lance baixo atrai)</td></tr>
+          <tr><td>Desconto</td><td>Nenhum ou pequeno</td><td>Grande (até 50% ou mais)</td></tr>
+          <tr><td>Chance de arrematar</td><td>Menor</td><td>Maior</td></tr>
+          <tr><td>Risco de preço vil</td><td>Não se aplica</td><td>Sim (juiz pode recusar)</td></tr>
+        </tbody>
+      </table>
+
+      <h3>Por que a 2ª praça é a “praça do investidor”</h3>
+      <p>Na 1ª praça, o lance mínimo é o valor de avaliação — ou seja, o preço cheio. A maioria dos leilões <strong>não recebe lances</strong> na 1ª praça simplesmente porque ninguém quer pagar o valor de mercado em um bem de leilão. O imóvel, então, vai para a 2ª praça, onde o lance mínimo cai para <strong>50% da avaliação</strong>. É aí que o investidor aparece.</p>
+
+      <div class="callout warning">
+        <div class="callout-title">⚠️ Atenção</div>
+        <p>Muitos editais têm <strong>praça única</strong> (as duas acontecem no mesmo ato ou em datas próximas), então essa divisão nem sempre existe. Além disso, se aparecer um lance válido na 1ª praça, a 2ª praça <strong>não acontece</strong>. Por isso, acompanhar o edital é essencial.</p>
+      </div>
+
+      <div class="callout tip">
+        <div class="callout-title">💡 Dica prática</div>
+        <p>Foque seu monitoramento nas <strong>segundas praças</strong>. É onde o desconto é maior e a chance de arrematar é real. Mas calcule o <strong>custo total</strong> (lance + 5% comissão + ITBI + registro + reforma) antes de se animar com o valor da avaliação.</p>
+      </div>
+    </article>
+
+    <!-- AULA 1.4 -->
+    <article class="lesson" id="aula-1-4">
+      <h2>Aula 1.4 — O Mito do “Preço Vil”</h2>
+
+      <p>Você já deve ter ouvido que “se o lance for muito baixo, o juiz pode recusar”. Isso é verdade — mas com nuances importantes que separam o investidor preparado do amador.</p>
+
+      <h3>O que diz a lei</h3>
+      <p>O <strong>art. 891 do CPC</strong> estabelece que o juiz pode <strong>não homologar a arrematação</strong> quando o preço oferecido for considerado <strong>vil</strong>. E o parágrafo único do mesmo artigo define: <em>“considerar-se-á vil o preço inferior a cinquenta por cento do valor da avaliação”</em>. Ou seja: em regra, lance abaixo de 50% da avaliação pode ser recusado.</p>
+
+      <h3>Mas não é uma regra absoluta</h3>
+      <ul>
+        <li><strong>O juiz tem discricionariedade</strong> — ele pode aceitar um lance abaixo de 50% se o credor não se opuser ou se o bem tiver características que justifiquem (ex.: difícil venda, imóvel em local isolado).</li>
+        <li><strong>O credor precisa requerer</strong> a recusa — se ninguém reclamar, o lance é homologado.</li>
+        <li><strong>O edital pode ter regra própria</strong> — alguns estabelecem lance mínimo diferente (por exemplo, 60% da avaliação), e isso prevalece.</li>
+        <li><strong>Bens de pequeno valor</strong> têm tratamento diferenciado (verifique o edital).</li>
+      </ul>
+
+      <h3>Como se proteger do risco de recusa</h3>
+      <ul>
+        <li><strong>Ofereça acima de 50%</strong> sempre que possível — é a zona de segurança.</li>
+        <li><strong>Justifique o valor</strong> se der lance abaixo de 50% (laudo de avaliação, comparação de mercado, condições do imóvel).</li>
+        <li><strong>Acompanhe o processo</strong> nos dias seguintes à arrematação — se o credor impugnar, você precisa se manifestar.</li>
+        <li><strong>Lembre-se</strong>: mesmo que o lance seja homologado, você pode ter que esperar a decisão judicial antes de tomar posse. Planeje o fluxo de caixa com folga.</li>
+      </ul>
+
+      <div class="callout warning">
+        <div class="callout-title">⚠️ Atenção</div>
+        <p>Lance muito abaixo de 50% <strong>não é automaticamente inválido</strong> — mas é <strong>automaticamente arriscado</strong>. Se o credor se opuser, o juiz pode recusar a arrematação e você perde tempo, dinheiro (custas) e a oportunidade. Na dúvida, fique na faixa dos 50% a 60% da avaliação.</p>
+      </div>
+
+      <div class="callout info">
+        <div class="callout-title">📌 Resumo da aula</div>
+        <p>“Preço vil” é um conceito legal (art. 891 do CPC), mas não uma proibição absoluta. O investidor inteligente <strong>conhece a regra</strong>, <strong>avalia o risco caso a caso</strong> e <strong>não aposta todas as fichas</strong> em lances muito abaixo de 50%. O objetivo não é só arrematar barato — é arrematar com segurança.</p>
+      </div>
+    </article>
+
+    <!-- PAGER -->
+    <nav class="pager" aria-label="Navegação entre módulos">
+      <a href="index.html" class="prev">← Início</a>
+      <a href="modulo-2.html" class="next">Módulo 2 →</a>
+    </nav>
+
+    <footer class="footer">
+      <p>Arremate Inteligente · Material didático · Uso pessoal</p>
+    </footer>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

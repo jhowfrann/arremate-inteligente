@@ -1,0 +1,577 @@
+/* ===== RESET & VARIÁVEIS ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --primary: #1e3a5f;
+  --primary-dark: #0f1f33;
+  --accent: #e8a33d;
+  --accent-dark: #c88420;
+  --bg: #f8f9fb;
+  --card: #ffffff;
+  --text: #2c3e50;
+  --text-light: #7a8a9a;
+  --border: #e0e5eb;
+  --sidebar-width: 290px;
+  --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(30, 58, 95, 0.12);
+  --shadow-lg: 0 10px 30px rgba(30, 58, 95, 0.2);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== TOPBAR ===== */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--primary-dark);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+}
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.icon-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: auto;
+}
+
+.logo { height: 34px; width: auto; border-radius: 4px; }
+.brand-name { font-weight: 600; letter-spacing: 0.3px; font-size: 1rem; }
+
+/* ===== SIDEBAR ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--primary-dark);
+  color: #fff;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 200;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.open { transform: translateX(0); }
+
+.sidebar-header {
+  padding: 1.25rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.sidebar-logo { height: 30px; width: auto; border-radius: 4px; }
+
+.sidebar-nav { padding: 0.75rem 0; display: flex; flex-direction: column; }
+
+.nav-link {
+  padding: 0.7rem 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 0.9rem;
+  border-left: 3px solid transparent;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  line-height: 1.4;
+}
+
+.nav-link:hover { background: rgba(255, 255, 255, 0.06); color: #fff; }
+
+.nav-link.active {
+  background: rgba(232, 163, 61, 0.15);
+  border-left-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.nav-section {
+  padding: 1rem 1.25rem 0.5rem;
+  font-size: 0.7rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 600;
+}
+
+/* ===== OVERLAY ===== */
+.sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s, visibility 0.3s;
+  z-index: 150;
+}
+
+.sidebar-overlay.show { opacity: 1; visibility: visible; }
+
+/* ===== CONTEÚDO ===== */
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* HERO (HOME) */
+.hero {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+  border-radius: 14px;
+  margin-bottom: 2.5rem;
+  box-shadow: var(--shadow-lg);
+}
+
+.hero h1 { font-size: 2.4rem; letter-spacing: 0.5px; margin-bottom: 0.75rem; }
+
+.tagline {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* SUMÁRIO (HOME) */
+.summary h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1.25rem;
+  color: var(--primary-dark);
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--accent);
+  display: inline-block;
+}
+
+.summary-list {
+  list-style: none;
+  counter-reset: module-counter;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.summary-list li { counter-increment: module-counter; }
+
+.summary-list a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--card);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+  border-left: 4px solid var(--accent);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.summary-list a::before {
+  content: counter(module-counter, decimal-leading-zero);
+  font-weight: 700;
+  color: var(--accent);
+  font-size: 1.1rem;
+  min-width: 36px;
+}
+
+.summary-list a:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-md);
+  border-left-color: var(--accent-dark);
+}
+
+/* ===== PÁGINAS DE MÓDULO ===== */
+.page-header {
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: var(--shadow-md);
+}
+
+.module-badge {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--primary-dark);
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+
+.page-header h1 { font-size: 1.9rem; line-height: 1.3; }
+
+.page-header p {
+  color: rgba(255, 255, 255, 0.85);
+  margin-top: 0.5rem;
+  font-size: 1rem;
+}
+
+/* AULAS */
+.lesson {
+  background: var(--card);
+  border-radius: 10px;
+  padding: 1.75rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border-left: 4px solid var(--accent);
+}
+
+.lesson h2 {
+  color: var(--primary-dark);
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.lesson h3 { color: var(--primary); font-size: 1.1rem; margin: 1.25rem 0 0.6rem; }
+
+.lesson p { margin-bottom: 0.9rem; color: var(--text); line-height: 1.7; }
+
+.lesson ul, .lesson ol { margin: 0.75rem 0 1rem 1.5rem; color: var(--text); }
+
+.lesson li { margin-bottom: 0.4rem; line-height: 1.6; }
+
+.lesson strong { color: var(--primary-dark); }
+
+.lesson a { color: var(--accent-dark); text-decoration: underline; }
+.lesson a:hover { color: var(--primary); }
+
+/* CALLOUTS */
+.callout {
+  border-left: 4px solid;
+  padding: 1rem 1.25rem;
+  margin: 1rem 0;
+  border-radius: 6px;
+  background: #f5f8fc;
+}
+
+.callout-title {
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 0.4rem;
+}
+
+.callout.tip { border-color: #2e7d32; background: #eef7ee; }
+.callout.tip .callout-title { color: #2e7d32; }
+
+.callout.warning { border-color: #c62828; background: #fdeeee; }
+.callout.warning .callout-title { color: #c62828; }
+
+.callout.info { border-color: #1565c0; background: #eaf3fb; }
+.callout.info .callout-title { color: #1565c0; }
+
+/* TABELAS */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.92rem;
+  background: var(--card);
+  box-shadow: var(--shadow-sm);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.data-table th {
+  background: var(--primary);
+  color: #fff;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.data-table td { padding: 0.75rem 1rem; border-top: 1px solid var(--border); vertical-align: top; }
+
+.data-table tr:nth-child(even) td { background: #fafbfc; }
+
+/* PAGER */
+.pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.pager a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--primary);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.pager a:hover { background: var(--primary-dark); transform: translateY(-1px); }
+
+.pager a.next { background: var(--accent); color: var(--primary-dark); }
+.pager a.next:hover { background: var(--accent-dark); }
+
+/* RODAPÉ */
+.footer {
+  margin-top: 3.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 600px) {
+  .brand-name { display: none; }
+  .hero h1 { font-size: 1.8rem; }
+  .tagline { font-size: 0.95rem; }
+  .hero { padding: 2rem 1rem; }
+  .content { padding: 1.5rem 1rem 3rem; }
+  .home-btn { font-size: 0.85rem; padding: 0.4rem 0.6rem; }
+  .lesson { padding: 1.25rem; }
+  .page-header { padding: 1.5rem 1rem; }
+  .page-header h1 { font-size: 1.5rem; }
+  .data-table { font-size: 0.82rem; }
+  .data-table th, .data-table td { padding: 0.5rem 0.6rem; }
+  .pager { flex-direction: column; }
+  .pager a { justify-content: center; }
+}
+
+/* ===== FORMULÁRIO DE PETIÇÃO (MÓDULO 8) ===== */
+.form-peticao fieldset {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  background: #fafbfc;
+}
+
+.form-peticao legend {
+  font-weight: 700;
+  color: var(--primary-dark);
+  padding: 0 0.5rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.form-row label {
+  flex: 1 1 200px;
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  color: var(--primary-dark);
+  font-weight: 500;
+}
+
+.form-row input,
+.form-row textarea {
+  margin-top: 0.35rem;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  color: var(--text);
+  background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(232, 163, 61, 0.18);
+}
+
+.form-row textarea { resize: vertical; min-height: 60px; }
+
+.form-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  font-family: inherit;
+}
+
+.btn-primary { background: var(--primary); color: #fff; }
+.btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+.btn-accent { background: var(--accent); color: var(--primary-dark); }
+.btn-accent:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+/* ===== PETIÇÃO GERADA ===== */
+.petition-output {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #000;
+  margin-top: 1.5rem;
+}
+
+.petition-output h2 {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.petition-output p { margin-bottom: 0.9rem; text-align: justify; }
+
+.petition-output .petition-field {
+  background: #fff7e6;
+  padding: 0 0.15rem;
+  border-bottom: 1px dotted #999;
+}
+
+.petition-output .petition-signature {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.petition-output .petition-signature p { margin: 0; }
+.petition-output .petition-signature hr {
+  border: none;
+  border-top: 1px solid #000;
+  width: 60%;
+  margin: 2.5rem auto 0.4rem;
+}
+
+/* ===== IMPRESSÃO (apenas no Módulo 8) ===== */
+@media print {
+  body.page-petition .no-print,
+  body.page-petition .topbar,
+  body.page-petition .sidebar,
+  body.page-petition .sidebar-overlay { display: none !important; }
+
+  body.page-petition { background: #fff; }
+
+  body.page-petition .content {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  body.page-petition .petition-output {
+    display: block !important;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 12pt;
+    line-height: 1.6;
+    border-radius: 0;
+  }
+
+  body.page-petition .petition-field {
+    background: transparent !important;
+    border-bottom: none;
+    padding: 0;
+    font-weight: inherit;
+  }
+}
+
+
+/* ===== STATUS DE SALVAMENTO (MÓDULO 8) ===== */
+.save-status {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  margin-bottom: 1rem;
+  background: #eef7ee;
+  border-left: 3px solid #2e7d32;
+  color: #2e7d32;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  font-weight: 500;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.save-status.visible { opacity: 1; }
+
+/* ===== BOTÃO SECUNDÁRIO ===== */
+.btn-secondary {
+  background: #e0e5eb;
+  color: var(--text);
+}
+.btn-secondary:hover {
+  background: #c8d0d9;
+  transform: translateY(-1px);
+}
